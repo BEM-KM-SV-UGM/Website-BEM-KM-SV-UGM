@@ -1,0 +1,44 @@
+/* Tersembunyi di desktop; Navbar hanya menampilkan nav desktop. */
+.wrapper {
+  display: none;
+}
+
+.toggle {
+  display: none;
+}
+
+.menu {
+  position: absolute;
+  top: 64px;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+  padding: var(--spacing-3) var(--spacing-4) var(--spacing-4);
+  background-color: var(--color-background);
+  border-bottom: var(--stroke-0) solid var(--color-border);
+}
+
+.menu a {
+  padding: var(--spacing-2) 0;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    display: block;
+    position: relative;
+  }
+
+  .toggle {
+    display: inline-block;
+    padding: var(--spacing-2) var(--spacing-3);
+    border: var(--stroke-0) solid var(--color-border);
+    border-radius: var(--radius-2);
+    background: var(--color-surface);
+    color: var(--color-text);
+    cursor: pointer;
+  }
+}

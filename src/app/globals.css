@@ -1,0 +1,252 @@
+/* =============================================================
+   Global CSS + Design System
+   Sumber token: docs/design.md (design system BEM Website).
+   Jangan memakai nilai hex/ukuran mentah di component —
+   selalu referensikan token di bawah ini.
+   Style khusus component diletakkan di CSS module masing-masing.
+   ============================================================= */
+
+:root {
+  /* --- Font utama (Plus Jakarta Sans, dipasang via next/font di layout.js) --- */
+  --font-sans: var(--font-plus-jakarta-sans), system-ui, -apple-system,
+    "Segoe UI", Roboto, sans-serif;
+
+  /* --- Warna: Green --- */
+  --green-10: rgba(31, 193, 107, 0.1);
+  --green-100: #84ebb4;
+  --green-200: #1fc16b;
+
+  /* --- Warna: Neutral --- */
+  --neutral-100: #ffffff;
+  --neutral-200: #fafcfe;
+  --neutral-300: #f6f8fd;
+  --neutral-400: #f4f7fe;
+  --neutral-500: #e9edf7;
+  --neutral-600: #e0e5f2;
+  --neutral-700: #a3b2d0;
+  --neutral-800: #7085ae;
+  --neutral-900: #475f8c;
+  --neutral-1000: #2b4774;
+
+  /* --- Warna: Primary --- */
+  --primary-10: rgba(23, 77, 218, 0.1);
+  --primary-100: #cfe1fd;
+  --primary-200: #a1c1fb;
+  --primary-300: #709cf3;
+  --primary-400: #174dda;
+  --primary-500: #103bbb;
+  --primary-600: #0b2b9c;
+  --primary-700: #041468;
+
+  /* --- Warna: Red --- */
+  --red-10: rgba(251, 55, 72, 0.1);
+  --red-100: #fb3748;
+  --red-200: #d00416;
+
+  /* --- Warna: Secondary --- */
+  --secondary-10: rgba(209, 110, 5, 0.1);
+  --secondary-100: #fff3cf;
+  --secondary-200: #fee1a0;
+  --secondary-300: #f5c76b;
+  --secondary-400: #e7a943;
+  --secondary-500: #d68200;
+  --secondary-600: #9a4e00;
+  --secondary-700: #692900;
+
+  /* --- Warna: Yellow --- */
+  --yellow-10: rgba(223, 180, 0, 0.1);
+  --yellow-100: #ffdb43;
+  --yellow-200: #dfb400;
+
+  /* --- Alias semantik (dipakai component; petakan ke token di atas) --- */
+  --color-primary: var(--primary-400);
+  --color-primary-hover: var(--primary-500);
+  --color-text: var(--neutral-1000);
+  --color-text-muted: var(--neutral-800);
+  --color-background: var(--neutral-100);
+  --color-surface: var(--neutral-300);
+  --color-border: var(--neutral-500);
+
+  /* --- Tipografi: Headings (Bold) --- */
+  --text-h1: 68px;
+  --lh-h1: 102px;
+  --text-h2: 56px;
+  --lh-h2: 84px;
+  --text-h3: 46px;
+  --lh-h3: 69px;
+  --text-h4: 38px;
+  --lh-h4: 57px;
+  --text-h5: 32px;
+  --lh-h5: 48px;
+  --text-h6: 26px;
+  --lh-h6: 39px;
+  --text-h7: 22px;
+  --lh-h7: 33px;
+
+  /* --- Tipografi: Body --- */
+  --text-b1: 18px; /* Medium */
+  --lh-b1: 27px;
+  --text-b2: 16px; /* Regular — ukuran dasar body */
+  --lh-b2: 24px;
+  --text-b3: 14px;
+  --lh-b3: 21px;
+  --text-b4: 12px;
+  --lh-b4: 18px;
+  --text-b5: 10px;
+  --lh-b5: 15px;
+
+  /* --- Spacing --- */
+  --spacing-0: 2px;
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-7: 32px;
+  --spacing-8: 40px;
+  --spacing-9: 48px;
+  --spacing-10: 56px;
+
+  /* --- Border radius --- */
+  --radius-1: 4px;
+  --radius-2: 8px;
+  --radius-3: 12px;
+  --radius-4: 16px;
+  --radius-5: 20px;
+  --radius-6: 24px;
+  --radius-7: 32px;
+  --radius-full: 999px;
+
+  /* --- Stroke --- */
+  --stroke-0: 1px;
+  --stroke-1: 2px;
+  --stroke-2: 4px;
+  --stroke-3: 6px;
+
+  /* --- Shadow --- */
+  --shadow-e1: 0px 2px 4px 0px rgba(27, 28, 29, 0.04);
+  --shadow-e2: 0px 16px 32px -12px rgba(88, 92, 95, 0.1);
+  --shadow-e3: 0px 16px 40px -8px rgba(88, 92, 95, 0.16);
+
+  /* --- Layout project --- */
+  --container-width: 1120px;
+}
+
+/* --- Reset --- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Typography dasar (Plus Jakarta Sans dipakai global) --- */
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-b2); /* B-2: 16/24 Regular */
+  line-height: var(--lh-b2);
+  font-weight: 400;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 var(--spacing-3);
+  font-weight: 700;
+}
+
+h1 {
+  font-size: var(--text-h3); /* H-3: 46/69 */
+  line-height: var(--lh-h3);
+}
+
+h2 {
+  font-size: var(--text-h5); /* H-5: 32/48 */
+  line-height: var(--lh-h5);
+}
+
+h3 {
+  font-size: var(--text-h7); /* H-7: 22/33 */
+  line-height: var(--lh-h7);
+}
+
+h4,
+h5,
+h6 {
+  font-size: var(--text-b1);
+  line-height: var(--lh-b1);
+}
+
+/* Heading mengecil di layar kecil (tetap memakai token). */
+@media (max-width: 768px) {
+  h1 {
+    font-size: var(--text-h5);
+    line-height: var(--lh-h5);
+  }
+
+  h2 {
+    font-size: var(--text-h6);
+    line-height: var(--lh-h6);
+  }
+}
+
+p {
+  margin: 0 0 var(--spacing-3);
+}
+
+small {
+  font-size: var(--text-b4); /* B-4: 12/18 */
+  line-height: var(--lh-b4);
+}
+
+/* Form control ikut mewarisi font utama. */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* --- Elemen dasar --- */
+
+a {
+  color: var(--color-primary);
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+main {
+  min-height: 70vh;
+}
+
+/* --- Utility --- */
+
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin-inline: auto;
+  padding-inline: var(--spacing-4);
+}
