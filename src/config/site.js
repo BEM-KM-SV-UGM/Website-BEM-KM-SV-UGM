@@ -2,17 +2,19 @@
 // TODO: sesuaikan nilai final (nama resmi, deskripsi, kontak, sosial media).
 
 export const siteConfig = {
-  name: "BEM KM SV UGM",
-  fullName: "Badan Eksekutif Mahasiswa",
+  name: "Badan Eksekutif Mahasiswa",
+  shortName: "BEM KM SV UGM",
+  subtitle: "Keluarga Mahasiswa Sekolah Vokasi Universitas Gadjah Mada",
   description:
-    "Website resmi Badan Eksekutif Mahasiswa KM Sekolah Vokasi. Suarakan aspirasi, wujudkan perubahan.",
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
   url: "http://localhost:3000",
-  email: "bem@example.com",
+  email: "loremipsum@mail.ugm.ac.id",
   whatsappUrl: "https://wa.me/6281234567890", // Dummy WhatsApp Narahubung
   socials: {
-    instagram: "",
-    twitter: "",
-    youtube: "",
+    youtube: "https://youtube.com",
+    instagram: "https://instagram.com",
+    tiktok: "https://tiktok.com",
   },
 };
+
 

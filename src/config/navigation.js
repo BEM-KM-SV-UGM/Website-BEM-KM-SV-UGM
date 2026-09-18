@@ -9,7 +9,7 @@ export const navigation = [
     href: "/kesekretariatan",
   },
   {
-    label: "Vokasipedia",
+    label: "VokasiPedia",
     href: "/vokasipedia",
   },
   {

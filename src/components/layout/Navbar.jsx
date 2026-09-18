@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import MobileMenu from "@/components/layout/MobileMenu";
@@ -15,15 +16,57 @@ function isActive(pathname, href) {
   return pathname.startsWith(href);
 }
 
+function ChatIcon() {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2Z"
+        fill="currentColor"
+        opacity="0.25"
+      />
+      <path
+        d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M8 9.5V12.5M12 7.5V14.5M16 9.5V12.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
 export default function Navbar() {
   const pathname = usePathname();
 
   return (
     <header className={styles.header}>
       <div className={`container ${styles.inner}`}>
-        <Link href="/" className={styles.brand} aria-label="Beranda BEM KM SV UGM">
-          <span className={styles.brandTitle}>{siteConfig.name}</span>
-          <span className={styles.brandSubtitle}>{siteConfig.fullName}</span>
+        <Link href="/" className={styles.brand} aria-label="Beranda Badan Eksekutif Mahasiswa">
+          <Image
+            src="/icons/Logo.webp"
+            alt="Logo BEM KM SV UGM"
+            width={44}
+            height={44}
+            className={styles.logoImage}
+            priority
+          />
+          <div className={styles.brandText}>
+            <span className={styles.brandTitle}>{siteConfig.name}</span>
+            <span className={styles.brandSubtitle}>{siteConfig.subtitle}</span>
+          </div>
         </Link>
         <nav className={styles.nav} aria-label="Navigasi utama">
           {navigation.map((item) => (
@@ -41,6 +84,7 @@ export default function Navbar() {
             href={siteConfig.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
+            icon={<ChatIcon />}
             className={styles.narahubungBtn}
           >
             Narahubung
