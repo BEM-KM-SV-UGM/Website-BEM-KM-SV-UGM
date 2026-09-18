@@ -1,0 +1,50 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: var(--text-b3); /* B-3: 14px */
+  font-weight: 600;
+  line-height: var(--lh-b3); /* 21px */
+  white-space: nowrap;
+  text-decoration: none;
+  width: fit-content;
+  transition: all 0.15s ease;
+}
+
+/* Variant kuning / secondary sesuai design system (docs/design.md) & gambar */
+.warning,
+.yellow,
+.secondary {
+  background-color: var(--secondary-100); /* #FFF3CF */
+  color: var(--secondary-500); /* #D68200 */
+}
+
+.warning:hover,
+.yellow:hover,
+.secondary:hover {
+  background-color: var(--secondary-200); /* #FEE1A0 */
+}
+
+/* Variant opsional tambahan */
+.primary {
+  background-color: var(--primary-100);
+  color: var(--primary-600);
+}
+
+.outline {
+  background-color: transparent;
+  border: var(--stroke-0) solid var(--neutral-500);
+  color: var(--neutral-900);
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.label {
+  display: inline-block;
+}

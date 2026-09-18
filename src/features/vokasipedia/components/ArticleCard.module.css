@@ -19,10 +19,10 @@
 }
 
 .title {
-  font-size: 1.2rem;
+  font-size: var(--text-b2);
+  line-height: var(--lh-b2);
   font-weight: 700;
   margin: 0;
-  line-height: 1.4;
 }
 
 .title a {
@@ -35,9 +35,10 @@
 }
 
 .excerpt {
-  font-size: 0.925rem;
+  font-size: var(--text-b3);
   color: var(--color-text-muted);
-  line-height: 1.5;
+  line-height: var(--lh-b3);
+  margin: 0;
   flex-grow: 1;
 }
 

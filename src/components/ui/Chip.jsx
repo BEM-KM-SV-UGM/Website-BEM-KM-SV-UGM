@@ -1,10 +1,11 @@
 import React from 'react';
-import styles from './Chip.module.css'; 
+import styles from './Chip.module.css';
 
 export default function Chip({ 
   children, 
   href, 
   icon: Icon,
+  variant = 'warning',
   className = '', 
   ...props 
 }) {
@@ -14,7 +15,9 @@ export default function Chip({
       <span className={styles.label}>{children}</span>
     </>
   );
-  const combinedClassName = `${styles.button} ${className}`.trim();
+
+  const combinedClassName = `${styles.chip} ${styles[variant] || styles.warning} ${className}`.trim();
+
   // Jika prop `href` ada, render tag <a> (Link)
   if (href) {
     return (
@@ -23,10 +26,11 @@ export default function Chip({
       </a>
     );
   }
-  // Jika tidak ada `href`, render tag <button> standar
+
+  // Jika tidak ada `href`, render tag <span>
   return (
-    <button className={combinedClassName} {...props}>
+    <span className={combinedClassName} {...props}>
       {content}
-    </button>
+    </span>
   );
 }

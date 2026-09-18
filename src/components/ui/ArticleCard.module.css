@@ -1,0 +1,124 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--neutral-100);
+  border-radius: var(--radius-4);
+  border: var(--stroke-0) solid var(--neutral-500);
+  box-shadow: var(--shadow-e2);
+  overflow: hidden;
+  max-width: 100%;
+  width: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-e3);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  background-color: var(--neutral-300);
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.placeholderImage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2);
+  background: linear-gradient(135deg, var(--neutral-400), var(--neutral-600));
+  color: var(--neutral-800);
+}
+
+.placeholderIcon {
+  opacity: 0.7;
+}
+
+.placeholderText {
+  font-size: var(--text-b4);
+  font-weight: 500;
+  color: var(--neutral-800);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-6);
+  gap: var(--spacing-3);
+  flex-grow: 1;
+}
+
+.chipsRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-1);
+}
+
+.title {
+  font-size: var(--text-b2); /* B-2: 16px */
+  line-height: var(--lh-b2); /* 24px */
+  font-weight: 700;
+  color: var(--neutral-1000);
+  margin: 0;
+}
+
+.titleLink {
+  color: inherit;
+  text-decoration: none;
+}
+
+.titleLink:hover {
+  color: var(--primary-400);
+}
+
+.excerpt {
+  font-size: var(--text-b3);
+  color: var(--neutral-800);
+  line-height: var(--lh-b3);
+  margin: 0;
+  flex-grow: 1;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: var(--spacing-4);
+  padding-top: var(--spacing-2);
+}
+
+.actionLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--primary-400);
+  font-weight: 600;
+  font-size: var(--text-b3);
+  text-decoration: none;
+  transition: gap 0.2s ease, color 0.15s ease;
+}
+
+.actionLink:hover {
+  color: var(--primary-500);
+  gap: 9px;
+}
+
+.actionIcon {
+  transition: transform 0.2s ease;
+}
+
+.actionLink:hover .actionIcon {
+  transform: translate(2px, -2px);
+}
