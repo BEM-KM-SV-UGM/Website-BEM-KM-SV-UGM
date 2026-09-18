@@ -9,16 +9,16 @@ export const metadata = {
 };
 
 export default function GaleriPage() {
-  return (
-    <>
-      <PageHeader
-        title="Galeri"
-        description="Dokumentasi kegiatan dan acara BEM KM SV."
-      />
-      <div className="container">
-        <GalleryGrid albums={albums} />
-        <GalleryViewer />
-      </div>
-    </>
-  );
+  // return (
+  //   <>
+  //     <PageHeader
+  //       title="Galeri"
+  //       description="Dokumentasi kegiatan dan acara BEM KM SV."
+  //     />
+  //     <div className="container">
+  //       <GalleryGrid albums={albums} />
+  //       <GalleryViewer />
+  //     </div>
+  //   </>
+  // );
 }

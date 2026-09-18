@@ -7,5 +7,5 @@ export const metadata = {
 };
 
 export default function UniVokasiPage() {
-  return <UniVokasiContent />;
+  // return <UniVokasiContent />;
 }

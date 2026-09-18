@@ -8,5 +8,5 @@ export const metadata = {
 
 export default async function KesekretariatanPage() {
   const cabinets = await getCabinets();
-  return <CabinetList cabinets={cabinets} />;
+  // return <CabinetList cabinets={cabinets} />;
 }

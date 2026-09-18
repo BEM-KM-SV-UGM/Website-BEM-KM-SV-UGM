@@ -3,9 +3,9 @@
 
 export const homeContent = {
   hero: {
-    title: "BEM KM SV",
-    subtitle: "Suarakan aspirasi dan wujudkan perubahan bersama BEM KM SV.",
-    // TODO: gunakan asset dari public/images/hero/homepage-hero.webp
+    title: "Katalisator Perubahan & Ruang Kolaborasi Mahasiswa Vokasi UGM",
+    subtitle:
+      "Mewadahi aspirasi, menggerakkan inovasi, dan menghadirkan dampak nyata bagi seluruh Keluarga Mahasiswa Sekolah Vokasi UGM.",
   },
   about: {
     title: "Tentang Kami",

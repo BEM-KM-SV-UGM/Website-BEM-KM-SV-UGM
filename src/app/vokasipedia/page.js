@@ -12,5 +12,5 @@ export default async function VokasipediaPage() {
     getCategories(),
   ]);
 
-  return <ArticleList initialArticles={initialArticles} categories={categories} />;
+  // return <ArticleList initialArticles={initialArticles} categories={categories} />;
 }

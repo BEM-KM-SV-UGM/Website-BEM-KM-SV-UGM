@@ -1,65 +1,140 @@
-import Link from "next/link";
+"use client";
+
+import { useEffect, useRef } from "react";
+import Image from "next/image";
+import Button from "@/components/ui/Button";
+import { siteConfig } from "@/config/site";
 import { homeContent } from "../data/home";
 import styles from "./Hero.module.css";
-import Button from "@/components/ui/Button";
-import ArticleCard from "@/components/ui/ArticleCard";
 
-// TODO (PAGE-001): styling hero sesuai Figma, termasuk background image
-// dari public/images/hero/homepage-hero.webp.
-
-export default function Hero() {
+// Ikon panah keluar (↗) untuk button "Layanan Aduan Vokasi".
+function ExternalArrowIcon() {
   return (
-    <section className={styles.hero}>
-      <div className="container">
-        {/* <h1>{homeContent.hero.title}</h1>
-        <p>{homeContent.hero.subtitle}</p> */}
-        <Button 
-            href="https://wa.me/123456789" 
-            target="_blank" 
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <line x1="7" y1="17" x2="17" y2="7" />
+      <polyline points="7 7 17 7 17 17" />
+    </svg>
+  );
+}
+
+function ChevronDownIcon() {
+  return (
+    <svg
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="m6 9 6 6 6-6" />
+    </svg>
+  );
+}
+
+// Progress scroll 0 → 1 (0 saat hero masih di puncak viewport, 1 saat
+// hero habis terlewat) disimpan sebagai CSS variable --parallax pada section,
+// dipakai CSS module untuk menggerakkan penutup biru secara parallax.
+export default function Hero() {
+  const heroRef = useRef(null);
+
+  useEffect(() => {
+    const hero = heroRef.current;
+    if (!hero) return undefined;
+
+    let raf = null;
+    const update = () => {
+      raf = null;
+      const rect = hero.getBoundingClientRect();
+      const progress = Math.min(1, Math.max(0, -rect.top / rect.height));
+      hero.style.setProperty("--parallax", progress.toFixed(4));
+    };
+
+    const onScroll = () => {
+      if (raf === null) raf = requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (raf !== null) cancelAnimationFrame(raf);
+    };
+  }, []);
+
+  return (
+    <section className={styles.hero} ref={heroRef}>
+      <div className={`container ${styles.inner}`}>
+        {/* Brand: logo + nama + subtitle */}
+        <div className={styles.brand}>
+          <Image
+            src="/icons/Logo.webp"
+            alt="Logo BEM KM SV UGM"
+            width={48}
+            height={48}
+            className={styles.logo}
+            priority
+          />
+          <div className={styles.brandText}>
+            <span className={styles.brandTitle}><strong>Badan Eksekutif Mahasiswa</strong></span>
+            <span className={styles.brandSubtitle}>
+              Keluarga Mahasiswa Sekolah Vokasi Universitas Gadjah Mada
+            </span>
+          </div>
+        </div>
+
+        {/* Judul utama (H-2): bagian tebal di tengah kalimat */}
+        <h1 className={styles.heading}>
+          Katalisator <strong>Perubahan &amp; Ruang Kolaborasi</strong> Mahasiswa
+          Vokasi UGM
+        </h1>
+
+        <p className={styles.subtitle}>{homeContent.hero.subtitle}</p>
+
+        <div className={styles.actions}>
+          <Button
+            href={siteConfig.whatsappUrl}
+            target="_blank"
             rel="noopener noreferrer"
-            // icon={<MessageSquare size={20} />}
+            className={styles.btnOutline}
           >
-            Narahubung
-        </Button>
+            Narahubung &amp; Media Partner
+          </Button>
+          <Button href="/aduan-vokasi" icon={<ExternalArrowIcon />}>
+            Layanan Aduan Vokasi
+          </Button>
+        </div>
+      </div>
 
-        {/* Component ArticleCard & Chip untuk dieksplor */}
-        <div
-          style={{
-            marginTop: "var(--spacing-8)",
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gap: "var(--spacing-6)",
-          }}
-        >
-          <ArticleCard
-            chips={[
-              "Kementerian Sosial Masyarakat",
-              "Biro Pengembangan Sumber Daya",
-            ]}
-            title="Pekan Olahraga Vokasi dan Vocational Art"
-            excerpt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do..."
-            href="/vokasipedia"
-          />
-
-          <ArticleCard
-            chips={[
-              "Kementerian Sosial Masyarakat",
-              "Biro Pengembangan Sumber Daya",
-            ]}
-            title="Vokasi Berkarya untuk Indonesia"
-            excerpt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do..."
-            href="/vokasipedia"
-          />
-
-          <ArticleCard
-            chips={[
-              "Kementerian Sosial Masyarakat",
-              "Biro Pengembangan Sumber Daya",
-            ]}
-            title="Membangun Potensi Mahasiswa Vokasi"
-            excerpt="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do..."
-            href="/vokasipedia"
-          />
+      {/* Gradasi dari aset public/hero/gradation.png + penutup biru parallax */}
+      <div className={styles.visual} aria-hidden="true">
+        <Image
+          src="/hero/gradation.png"
+          alt=""
+          fill
+          sizes="100vw"
+          className={styles.gradation}
+          priority
+        />
+        <div className={styles.closing}>
+          <span className={styles.scrollCue}>
+            <ChevronDownIcon />
+          </span>
         </div>
       </div>
     </section>
