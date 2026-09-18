@@ -15,20 +15,37 @@
 }
 
 .brand {
-  font-weight: 700;
-  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
   text-decoration: none;
+}
+
+.brandTitle {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+.brandSubtitle {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .nav {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: var(--spacing-4);
 }
 
 .link {
   color: var(--color-text-muted);
   text-decoration: none;
+  font-size: 0.95rem;
 }
 
 .link:hover {
@@ -37,12 +54,29 @@
 
 .active {
   color: var(--color-primary);
-  font-weight: 500;
+  font-weight: 600;
   text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.narahubungBtn {
+  font-size: 0.875rem;
+  padding: 8px 16px;
 }
 
 @media (max-width: 768px) {
   .nav {
     display: none;
   }
+
+  .narahubungBtn {
+    display: none;
+  }
 }
+

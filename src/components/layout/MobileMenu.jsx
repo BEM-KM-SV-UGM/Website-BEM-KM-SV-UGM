@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { navigation } from "@/config/navigation";
+import { siteConfig } from "@/config/site";
 import styles from "./MobileMenu.module.css";
 
 // TODO (COMP-001): lengkapi styling dan animasi menu mobile sesuai desain.
@@ -32,6 +33,15 @@ export default function MobileMenu() {
               {item.label}
             </Link>
           ))}
+          <a
+            href={siteConfig.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setOpen(false)}
+            style={{ fontWeight: 600, color: "var(--color-primary)" }}
+          >
+            Narahubung (WhatsApp)
+          </a>
         </nav>
       ) : null}
     </div>

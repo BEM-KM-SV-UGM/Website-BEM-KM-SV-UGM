@@ -1,0 +1,91 @@
+.backLink {
+  margin-bottom: var(--spacing-4);
+}
+
+.backLink a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.header {
+  margin-bottom: var(--spacing-8);
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-top: var(--spacing-2);
+  margin-bottom: var(--spacing-1);
+}
+
+.tagline {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-3);
+}
+
+.description {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  max-width: 800px;
+}
+
+.section {
+  margin-top: var(--spacing-8);
+}
+
+.visionMissionGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-6);
+  margin-top: var(--spacing-4);
+}
+
+.cardHeading {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-2);
+}
+
+.missionList {
+  padding-left: var(--spacing-4);
+  line-height: 1.6;
+}
+
+.structureGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-4);
+  margin-top: var(--spacing-4);
+}
+
+.deptCard {
+  border-left: 4px solid var(--color-primary);
+}
+
+.deptName {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-1);
+}
+
+.deptLead {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+  margin-bottom: var(--spacing-3);
+}
+
+.deptDivisions {
+  padding-left: var(--spacing-4);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .visionMissionGrid {
+    grid-template-columns: 1fr;
+  }
+}

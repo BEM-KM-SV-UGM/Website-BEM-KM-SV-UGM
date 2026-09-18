@@ -1,37 +1,27 @@
-// Daftar menu website.
-// Navbar dan Footer membaca daftar ini, jadi jangan hardcode menu di component.
-
+// Daftar menu navigasi utama website sesuai IA_Website_BEM.md
 export const navigation = [
   {
     label: "Beranda",
     href: "/",
   },
   {
-    label: "Kementerian",
-    href: "/kementerian",
+    label: "Kesekretariatan",
+    href: "/kesekretariatan",
   },
   {
-    label: "Visi & Misi",
-    href: "/visi-misi",
+    label: "Vokasipedia",
+    href: "/vokasipedia",
   },
   {
-    label: "Informasi",
-    href: "/informasi",
+    label: "Uni-Vokasi",
+    href: "/uni-vokasi",
   },
   {
-    label: "Aspirasi",
-    href: "/aspirasi",
-  },
-  {
-    label: "FAQ",
-    href: "/faq",
+    label: "Aduan Vokasi",
+    href: "/aduan-vokasi",
   },
   {
     label: "Galeri",
     href: "/galeri",
-  },
-  {
-    label: "Media Partner",
-    href: "/media-partner",
   },
 ];

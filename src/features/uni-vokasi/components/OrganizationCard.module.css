@@ -1,0 +1,32 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: var(--spacing-2);
+}
+
+.tagWrapper {
+  margin-bottom: var(--spacing-1);
+}
+
+.name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.subtitle {
+  font-size: 0.85rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  margin: 0;
+}
+
+.description {
+  font-size: 0.925rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin-top: var(--spacing-2);
+}

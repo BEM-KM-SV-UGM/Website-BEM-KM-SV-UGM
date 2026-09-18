@@ -1,0 +1,60 @@
+.filterContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  margin-top: var(--spacing-6);
+  margin-bottom: var(--spacing-6);
+}
+
+.searchWrapper {
+  width: 100%;
+  max-width: 500px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  border: var(--stroke-0) solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 0.95rem;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.categoryPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+}
+
+.pill {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: var(--stroke-0) solid var(--color-border);
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pill:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.activePill {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+
+.activePill:hover {
+  color: #fff;
+}

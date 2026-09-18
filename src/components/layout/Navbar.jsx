@@ -3,11 +3,10 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import MobileMenu from "@/components/layout/MobileMenu";
+import Button from "@/components/ui/Button";
 import { navigation } from "@/config/navigation";
 import { siteConfig } from "@/config/site";
 import styles from "./Navbar.module.css";
-
-// TODO (COMP-001): lengkapi styling, logo, dan aksesibilitas sesuai desain.
 
 function isActive(pathname, href) {
   if (href === "/") {
@@ -22,8 +21,9 @@ export default function Navbar() {
   return (
     <header className={styles.header}>
       <div className={`container ${styles.inner}`}>
-        <Link href="/" className={styles.brand}>
-          {siteConfig.name}
+        <Link href="/" className={styles.brand} aria-label="Beranda BEM KM SV UGM">
+          <span className={styles.brandTitle}>{siteConfig.name}</span>
+          <span className={styles.brandSubtitle}>{siteConfig.fullName}</span>
         </Link>
         <nav className={styles.nav} aria-label="Navigasi utama">
           {navigation.map((item) => (
@@ -36,8 +36,19 @@ export default function Navbar() {
             </Link>
           ))}
         </nav>
-        <MobileMenu />
+        <div className={styles.actions}>
+          <Button
+            href={siteConfig.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.narahubungBtn}
+          >
+            Narahubung
+          </Button>
+          <MobileMenu />
+        </div>
       </div>
     </header>
   );
 }
+

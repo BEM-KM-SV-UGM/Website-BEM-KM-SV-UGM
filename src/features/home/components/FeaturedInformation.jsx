@@ -9,19 +9,19 @@ import { homeContent } from "../data/home";
 export default function FeaturedInformation() {
   return (
     <section className="container">
-      <SectionTitle title="Informasi Terbaru" />
+      <SectionTitle title="Vokasipedia Terbaru" />
       <div>
         {homeContent.featuredInformation.map((item) => (
           <Card key={item.slug}>
             <h3>
-              <Link href={`/informasi/${item.slug}`}>{item.title}</Link>
+              <Link href={`/vokasipedia/${item.slug}`}>{item.title}</Link>
             </h3>
             <p>{item.excerpt}</p>
           </Card>
         ))}
       </div>
       <p>
-        <Link href="/informasi">Lihat semua informasi</Link>
+        <Link href="/vokasipedia">Lihat semua artikel di Vokasipedia</Link>
       </p>
     </section>
   );

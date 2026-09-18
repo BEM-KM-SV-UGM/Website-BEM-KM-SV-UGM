@@ -6,10 +6,10 @@ export const metadata = {
 };
 
 const adminMenus = [
-  { href: "/admin/informasi", label: "Kelola Informasi" },
+  { href: "/admin/kesekretariatan", label: "Kelola Kesekretariatan & Kabinet" },
+  { href: "/admin/vokasipedia", label: "Kelola Vokasipedia (Artikel)" },
+  { href: "/admin/aduan-vokasi", label: "Kelola Aduan & Survei Vokasi" },
   { href: "/admin/galeri", label: "Kelola Galeri" },
-  { href: "/admin/kementerian", label: "Kelola Kementerian" },
-  { href: "/admin/aspirasi", label: "Kelola Aspirasi" },
 ];
 
 // TODO: implementasi proteksi route dan autentikasi admin (menunggu backend).
