@@ -5,16 +5,17 @@
 [![Solar Icons](https://img.shields.io/badge/Solar_Icons-2.3.0-FF6B00?style=for-the-badge)](https://solar-icons.com/)
 [![Design System](https://img.shields.io/badge/Design_System-Plus_Jakarta_Sans-174DDA?style=for-the-badge)](./docs/design.md)
 
-Frontend website resmi **Badan Eksekutif Mahasiswa Keluarga Mahasiswa Sekolah Vokasi Universitas Gadjah Mada (BEM KM SV UGM)**. Dibangun menggunakan Next.js App Router, JavaScript modern, dan CSS Modules murni yang berpijak pada Design System terstandarisasi.
+Frontend website resmi **Badan Eksekutif Mahasiswa Keluarga Mahasiswa Sekolah Vokasi Universitas Gadjah Mada (BEM KM SV UGM)**. Dibangun menggunakan Next.js App Router, JavaScript modern, dan CSS Modules murni yang berakar pada Design System terstandarisasi.
 
 ---
 
 ## 📑 Daftar Isi
 
 - [Arsitektur Informasi (IA)](#-arsitektur-informasi-ia)
-- [Design System & Token](#-design-system--token)
+- [Design System & Palet Warna](#-design-system--palet-warna)
+- [Hierarki Tipografi (Headlines & Body)](#-hierarki-tipografi-headlines--body)
 - [Panduan Solar Icons](#-panduan-solar-icons)
-- [Katalog Komponen & Tampilan Visual](#-katalog-komponen--tampilan-visual)
+- [Katalog Komponen & Tampilan Visual Browser (HTML)](#-katalog-komponen--tampilan-visual-browser-html)
   - [1. Button Component](#1-button--srccomponentsuibuttonjsx)
   - [2. Chip Component](#2-chip--srccomponentsuichipjsx)
   - [3. Article Card Component](#3-article-card--srccomponentsuiarticlecardjsx)
@@ -41,28 +42,172 @@ Navigasi dan routing mengacu pada dokumen [`IA_Website_BEM.md`](./IA_Website_BEM
 
 ---
 
-## 🎨 Design System & Token
+## 🎨 Design System & Palet Warna
 
 > **Aturan Wajib:** Jangan menggunakan nilai HEX mentah (*hardcoded*) di dalam komponen. Selalu gunakan variabel CSS dari `src/app/globals.css`.
 
-### 1. Token Warna Utama
-```
-┌─────────────────┬─────────────────┬─────────────────┬─────────────────┐
-│ Primary (Biru)  │ Secondary (Oren)│ Neutral (Teks)  │ Neutral (Latar) │
-├─────────────────┼─────────────────┼─────────────────┼─────────────────┤
-│ --primary-400   │ --secondary-500 │ --neutral-1000  │ --neutral-100   │
-│ #174DDA (Brand) │ #D68200 (Aksen) │ #2B4774 (Heading│ #FFFFFF (Putih) │
-│ --primary-500   │ --secondary-100 │ --neutral-900   │ --neutral-300   │
-│ #103BBB (Hover) │ #FFF3CF (Badge) │ #475F8C (Body)  │ #F6F8FD (Surface│
-└─────────────────┴─────────────────┴─────────────────┴─────────────────┘
-```
+### 1. Palet Warna Utama (Tampilan Visual Langsung)
 
-### 2. Token Tipografi & Spacing
-- **Font Utama:** `Plus Jakarta Sans`
-- **Heading:** `H-1` (68px) s/d `H-7` (22px) dengan bobot **Bold (700)**
-- **Body:** `B-1` (18px), `B-2` (16px), `B-3` (14px), `B-4` (12px), `B-5` (10px)
-- **Radius:** `--radius-2` (8px), `--radius-3` (12px), `--radius-4` (16px), `--radius-full` (999px)
-- **Elevation Shadow:** `--shadow-e1` (halus), `--shadow-e2` (sedang/kartu), `--shadow-e3` (tinggi)
+#### A. Primary (Biru Brand)
+| Warna Visual | Nama Token | Variabel CSS | Nilai Hex | Peruntukan Utama |
+| :---: | :--- | :--- | :--- | :--- |
+| ![#174DDA](https://img.shields.io/badge/-%23174DDA-174DDA?style=for-the-badge) | Primary 400 | `--primary-400` | `#174DDA` | Warna Brand utama BEM, Button Primary, Tautan aktif |
+| ![#103BBB](https://img.shields.io/badge/-%23103BBB-103BBB?style=for-the-badge) | Primary 500 | `--primary-500` | `#103BBB` | Efek Hover button primary, penutup parallax hero |
+| ![#0B2B9C](https://img.shields.io/badge/-%230B2B9C-0B2B9C?style=for-the-badge) | Primary 600 | `--primary-600` | `#0B2B9C` | Efek Active (saat diklik), teks button secondary |
+| ![#709CF3](https://img.shields.io/badge/-%23709CF3-709CF3?style=for-the-badge) | Primary 300 | `--primary-300` | `#709CF3` | Aksen ilustrasi & border fokus |
+| ![#CFE1FD](https://img.shields.io/badge/-%23CFE1FD-CFE1FD?style=for-the-badge) | Primary 100 | `--primary-100` | `#CFE1FD` | Background badge / button secondary |
+
+#### B. Secondary (Aksen Oranye / Kuning)
+| Warna Visual | Nama Token | Variabel CSS | Nilai Hex | Peruntukan Utama |
+| :---: | :--- | :--- | :--- | :--- |
+| ![#D68200](https://img.shields.io/badge/-%23D68200-D68200?style=for-the-badge) | Secondary 500 | `--secondary-500` | `#D68200` | Teks chip kategori berita, aksen highlight |
+| ![#FEE1A0](https://img.shields.io/badge/-%23FEE1A0-FEE1A0?style=for-the-badge) | Secondary 200 | `--secondary-200` | `#FEE1A0` | State hover chip tag/kategori |
+| ![#FFF3CF](https://img.shields.io/badge/-%23FFF3CF-FFF3CF?style=for-the-badge) | Secondary 100 | `--secondary-100` | `#FFF3CF` | Background standar Chip kategori/kementerian |
+
+#### C. Neutral (Teks, Permukaan, & Border)
+| Warna Visual | Nama Token | Variabel CSS | Nilai Hex | Peruntukan Utama |
+| :---: | :--- | :--- | :--- | :--- |
+| ![#2B4774](https://img.shields.io/badge/-%232B4774-2B4774?style=for-the-badge) | Neutral 1000 | `--neutral-1000` | `#2B4774` | Teks judul utama (Headings `H-1` s/d `H-7`) |
+| ![#475F8C](https://img.shields.io/badge/-%23475F8C-475F8C?style=for-the-badge) | Neutral 900 | `--neutral-900` | `#475F8C` | Teks body paragraf, tautan menu biasa |
+| ![#7085AE](https://img.shields.io/badge/-%237085AE-7085AE?style=for-the-badge) | Neutral 800 | `--neutral-800` | `#7085AE` | Subtitle hero, deskripsi singkat, teks sekunder |
+| ![#E0E5F2](https://img.shields.io/badge/-%23E0E5F2-E0E5F2?style=for-the-badge) | Neutral 600 | `--neutral-600` | `#E0E5F2` | Garis batas (border) kartu & button outline |
+| ![#F6F8FD](https://img.shields.io/badge/-%23F6F8FD-F6F8FD?style=for-the-badge) | Neutral 300 | `--neutral-300` | `#F6F8FD` | Latar belakang surface kartu & container halus |
+| ![#FFFFFF](https://img.shields.io/badge/-%23FFFFFF-FFFFFF?style=for-the-badge&logoColor=000000) | Neutral 100 | `--neutral-100` | `#FFFFFF` | Latar belakang halaman utama, navbar, kartu |
+
+#### D. Status Colors (Feedback / Aksen)
+| Warna Visual | Token | Nilai Hex | Peruntukan |
+| :---: | :--- | :--- | :--- |
+| ![#1FC16B](https://img.shields.io/badge/-%231FC16B-1FC16B?style=for-the-badge) | Green 200 | `#1FC16B` | Status berhasil, aktif, valid |
+| ![#FB3748](https://img.shields.io/badge/-%23FB3748-FB3748?style=for-the-badge) | Red 100 | `#FB3748` | Status error, penting, bahaya |
+| ![#FFDB43](https://img.shields.io/badge/-%23FFDB43-FFDB43?style=for-the-badge) | Yellow 100 | `#FFDB43` | Peringatan, notice, highlight |
+
+---
+
+## 🔤 Hierarki Tipografi (Headlines & Body)
+
+Font standar project adalah **Plus Jakarta Sans**. Semua ukuran dan line-height telah dipetakan ke dalam token sistem:
+
+### 1. Headings (Judul) — Bobot Bold (700)
+
+<table>
+  <thead>
+    <tr>
+      <th>Tingkat</th>
+      <th>Token CSS</th>
+      <th>Ukuran / Line-Height</th>
+      <th>Pratinjau Tampilan Visual</th>
+      <th>Contoh Penggunaan</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>H-1</b></td>
+      <td><code>--text-h1</code> / <code>--lh-h1</code></td>
+      <td>68px / 102px</td>
+      <td><h1 style="margin:0; font-size: 32px;">Judul Utama Terbesar</h1></td>
+      <td>Hero banner display besar di desktop</td>
+    </tr>
+    <tr>
+      <td><b>H-2</b></td>
+      <td><code>--text-h2</code> / <code>--lh-h2</code></td>
+      <td>56px / 84px</td>
+      <td><h2 style="margin:0; font-size: 28px;">Judul Hero & Section Unggulan</h2></td>
+      <td>Heading utama beranda BEM KM SV</td>
+    </tr>
+    <tr>
+      <td><b>H-3</b></td>
+      <td><code>--text-h3</code> / <code>--lh-h3</code></td>
+      <td>46px / 69px</td>
+      <td><h3 style="margin:0; font-size: 24px;">Judul Halaman (Page Title)</h3></td>
+      <td>Halaman Vokasipedia, Kesekretariatan</td>
+    </tr>
+    <tr>
+      <td><b>H-4</b></td>
+      <td><code>--text-h4</code> / <code>--lh-h4</code></td>
+      <td>38px / 57px</td>
+      <td><h4 style="margin:0; font-size: 20px;">Sub-Section & Kategori Utama</h4></td>
+      <td>Heading bagian dalam section konten</td>
+    </tr>
+    <tr>
+      <td><b>H-5</b></td>
+      <td><code>--text-h5</code> / <code>--lh-h5</code></td>
+      <td>32px / 48px</td>
+      <td><h5 style="margin:0; font-size: 18px;">Judul Dialog Modal & Card Besar</h5></td>
+      <td>Section title pada layar tablet / kartu kabinet</td>
+    </tr>
+    <tr>
+      <td><b>H-6</b></td>
+      <td><code>--text-h6</code> / <code>--lh-h6</code></td>
+      <td>26px / 39px</td>
+      <td><h6 style="margin:0; font-size: 16px;">Judul Kartu Berita & Sub-Item</h6></td>
+      <td>Judul artikel pada feed berita</td>
+    </tr>
+    <tr>
+      <td><b>H-7</b></td>
+      <td><code>--text-h7</code> / <code>--lh-h7</code></td>
+      <td>22px / 33px</td>
+      <td><b style="font-size: 15px;">Judul Card Kecil & Widget</b></td>
+      <td>Header kolom footer, mini alert title</td>
+    </tr>
+  </tbody>
+</table>
+
+### 2. Body Text (Isi Teks Paragraf & Label)
+
+<table>
+  <thead>
+    <tr>
+      <th>Tingkat</th>
+      <th>Token CSS</th>
+      <th>Ukuran / Line-Height</th>
+      <th>Bobot (Weight)</th>
+      <th>Pratinjau Tampilan Visual</th>
+      <th>Contoh Penggunaan</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>B-1</b></td>
+      <td><code>--text-b1</code> / <code>--lh-b1</code></td>
+      <td>18px / 27px</td>
+      <td>Medium (500)</td>
+      <td><span style="font-size: 18px;">Paragraf lead pembuka atau pengantar hero banner</span></td>
+      <td>Lead paragraph, sub-heading deskriptif</td>
+    </tr>
+    <tr>
+      <td><b>B-2</b></td>
+      <td><code>--text-b2</code> / <code>--lh-b2</code></td>
+      <td>16px / 24px</td>
+      <td>Regular (400)</td>
+      <td><span style="font-size: 16px;">Teks dasar artikel, deskripsi umum kabinet, dan isi form</span></td>
+      <td><b>Default Body Text</b> untuk seluruh website</td>
+    </tr>
+    <tr>
+      <td><b>B-3</b></td>
+      <td><code>--text-b3</code> / <code>--lh-b3</code></td>
+      <td>14px / 21px</td>
+      <td>Regular / Semi (600)</td>
+      <td><span style="font-size: 14px;">Excerpt ringkasan berita, teks button, dan label chip</span></td>
+      <td>Ringkasan artikel, teks Button, Chip pills</td>
+    </tr>
+    <tr>
+      <td><b>B-4</b></td>
+      <td><code>--text-b4</code> / <code>--lh-b4</code></td>
+      <td>12px / 18px</td>
+      <td>Regular (400)</td>
+      <td><span style="font-size: 12px; color: #7085AE;">Tanggal publikasi, petunjuk input form, dan copyright</span></td>
+      <td>Metadata tanggal, keterangan input helper</td>
+    </tr>
+    <tr>
+      <td><b>B-5</b></td>
+      <td><code>--text-b5</code> / <code>--lh-b5</code></td>
+      <td>10px / 15px</td>
+      <td>Regular (400)</td>
+      <td><span style="font-size: 10px; color: #7085AE;">Badge status mikro dan teks disclaimer legal</span></td>
+      <td>Micro-copy, caption foto kecil</td>
+    </tr>
+  </tbody>
+</table>
 
 ---
 
@@ -99,130 +244,224 @@ import { DocumentTextIcon } from '@solar-icons/react/bold-duotone/document-text'
 
 ---
 
-## 📦 Katalog Komponen & Tampilan Visual
+## 📦 Katalog Komponen & Tampilan Visual Browser (HTML)
 
-Berikut adalah contoh visual (*mockup preview*) dari tampilan komponen beserta kode JSX penggunaannya.
+Berikut adalah contoh langsung bagaimana komponen di-render secara visual di browser beserta kode implementasinya.
 
 ---
 
 ### 1. Button — `src/components/ui/Button.jsx`
 
-Komponen tombol multifungsi. Secara otomatis merender tag `<a>` jika memiliki `href`, atau tag `<button>` jika tidak ada `href`. Dilengkapi dengan animasi hover, active scale, dan transisi halus.
+Komponen tombol multifungsi. Secara otomatis merender tag `<a>` jika memiliki prop `href`, atau tag `<button>` jika tidak ada `href`. Dilengkapi dengan transisi halus, micro-interaction scale, dan efek hover yang terpadu.
 
-#### A. Varian Tombol (Visual & Code)
+#### A. Tabel Varian & Pratinjau Tampilan Visual Langsung
 
-##### 🔹 Primary (`variant="primary"`) — Default
-Tampilan tombol solid biru dengan teks putih. Cocok untuk Call-to-Action utama.
-```
-┌──────────────────────────────────────────────┐
-│  TAMPILAN DI BROWSER:                        │
-│                                              │
-│   [ ↗  Layanan Aduan Vokasi ]                 │
-│   • Background: #174dda (Biru Utama)         │
-│   • Teks & Ikon: Putih Solid                 │
-│   • Hover: #103bbb + Glow Shadow Lembut      │
-│   • Active: Transform scale(0.98)            │
-└──────────────────────────────────────────────┘
-```
-```jsx
-import Button from "@/components/ui/Button";
-import { ArrowRightUpIcon } from "@solar-icons/react/line-duotone/arrow-right-up";
-
-<Button href="/aduan-vokasi" icon={<ArrowRightUpIcon size={20} />}>
+<table>
+  <thead>
+    <tr>
+      <th>Varian</th>
+      <th>Tampilan Visual (Render HTML)</th>
+      <th>Karakteristik Gaya</th>
+      <th>Kode Penggunaan JSX</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Primary</b><br><i>(Default)</i></td>
+      <td>
+        <a href="#preview">
+          <img src="https://img.shields.io/badge/%E2%86%97%20Layanan%20Aduan%20Vokasi-174DDA?style=for-the-badge&logoColor=white" alt="Button Primary" />
+        </a>
+      </td>
+      <td>
+        • Background: <code>#174DDA</code> (Biru Solid)<br>
+        • Teks: Putih (<code>#FFFFFF</code>)<br>
+        • Hover: <code>#103BBB</code> + Soft Shadow<br>
+        • Active: Scale <code>0.98</code>
+      </td>
+      <td>
+<pre lang="jsx">
+&lt;Button
+  href="/aduan-vokasi"
+  icon={&lt;ArrowRightUpIcon size={20} /&gt;}
+&gt;
   Layanan Aduan Vokasi
-</Button>
-```
-
-##### 🔹 Outline (`variant="outline"`)
-Tampilan tombol berlatar putih dengan border dan teks biru primary.
-```
-┌──────────────────────────────────────────────┐
-│  TAMPILAN DI BROWSER:                        │
-│                                              │
-│   ┌──────────────────────────────────────┐   │
-│   │   Narahubung & Media Partner         │   │
-│   └──────────────────────────────────────┘   │
-│   • Background: #ffffff (Putih)              │
-│   • Border: 1px solid #e0e5f2 (Neutral)      │
-│   • Teks: #174dda (Biru Primary)             │
-│   • Hover: Background #f6f8fd + Teks #103bbb │
-└──────────────────────────────────────────────┘
-```
-```jsx
-<Button
-  href="https://wa.me/6281234567890"
+&lt;/Button&gt;
+</pre>
+      </td>
+    </tr>
+    <tr>
+      <td><b>Outline</b></td>
+      <td>
+        <a href="#preview">
+          <img src="https://img.shields.io/badge/Narahubung%20%26%20Media%20Partner-white?style=for-the-badge&labelColor=white&color=174DDA" alt="Button Outline" />
+        </a>
+      </td>
+      <td>
+        • Background: Putih (<code>#FFFFFF</code>)<br>
+        • Border: 1px Solid Neutral 600<br>
+        • Teks: Biru (<code>#174DDA</code>)<br>
+        • Hover: Surface Neutral 300
+      </td>
+      <td>
+<pre lang="jsx">
+&lt;Button
+  href={siteConfig.whatsappUrl}
   target="_blank"
-  rel="noopener noreferrer"
   variant="outline"
->
-  Narahubung & Media Partner
-</Button>
-```
-
-##### 🔹 Secondary (`variant="secondary"`)
-Tombol aksen *tinted* biru lembut dengan teks biru tua.
-```
-┌──────────────────────────────────────────────┐
-│  TAMPILAN DI BROWSER:                        │
-│                                              │
-│   [ 📄  Unduh Dokumen ]                      │
-│   • Background: #cfe1fd (Primary-100)        │
-│   • Teks & Ikon: #0b2b9c (Primary-600)       │
-│   • Hover: #a1c1fb (Primary-200)             │
-└──────────────────────────────────────────────┘
-```
-```jsx
-<Button variant="secondary" icon={<DocumentTextIcon size={20} />}>
+&gt;
+  Narahubung &amp; Media Partner
+&lt;/Button&gt;
+</pre>
+      </td>
+    </tr>
+    <tr>
+      <td><b>Secondary</b></td>
+      <td>
+        <a href="#preview">
+          <img src="https://img.shields.io/badge/%F0%9F%93%84%20Unduh%20Dokumen-CFE1FD?style=for-the-badge&labelColor=CFE1FD&color=0B2B9C" alt="Button Secondary" />
+        </a>
+      </td>
+      <td>
+        • Background: Tinted Biru Muda <code>#CFE1FD</code><br>
+        • Teks &amp; Ikon: Biru Tua <code>#0B2B9C</code><br>
+        • Hover: <code>#A1C1FB</code>
+      </td>
+      <td>
+<pre lang="jsx">
+&lt;Button
+  variant="secondary"
+  icon={&lt;DocumentTextIcon size={20} /&gt;}
+&gt;
   Unduh Dokumen
-</Button>
-```
+&lt;/Button&gt;
+</pre>
+      </td>
+    </tr>
+    <tr>
+      <td><b>White</b></td>
+      <td>
+        <a href="#preview">
+          <img src="https://img.shields.io/badge/Jelajahi%20Fitur-FFFFFF?style=for-the-badge&labelColor=FFFFFF&color=174DDA" alt="Button White" />
+        </a>
+      </td>
+      <td>
+        • Background: Putih Bersih (<code>#FFFFFF</code>)<br>
+        • Teks: Biru (<code>#174DDA</code>)<br>
+        • Cocok di atas latar belakang biru tua
+      </td>
+      <td>
+<pre lang="jsx">
+&lt;Button variant="white"&gt;
+  Jelajahi Fitur
+&lt;/Button&gt;
+</pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-#### B. Ukuran Button (`size`)
-Tersedia tiga ukuran proporsional:
-```
-[ sm: Kecil ]   [ md: Standar (Default) ]   [ lg: Besar / Hero CTA ]
-```
-```jsx
-<Button size="sm">Tombol Kecil</Button>
-<Button size="md">Tombol Standar</Button>
-<Button size="lg">Tombol Besar</Button>
-```
+#### B. Ukuran Tombol (`size`)
+<table>
+  <thead>
+    <tr>
+      <th>Ukuran</th>
+      <th>Pratinjau Ukuran</th>
+      <th>Padding / Font</th>
+      <th>Contoh Penggunaan</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>sm</code></td>
+      <td><img src="https://img.shields.io/badge/Tombol%20Kecil-174DDA?style=flat&logoColor=white" /></td>
+      <td>6px 14px (Font 14px)</td>
+      <td><code>&lt;Button size="sm"&gt;Kecil&lt;/Button&gt;</code></td>
+    </tr>
+    <tr>
+      <td><code>md</code> (Default)</td>
+      <td><img src="https://img.shields.io/badge/Tombol%20Standar-174DDA?style=flat-square&logoColor=white" /></td>
+      <td>10px 20px (Font 16px)</td>
+      <td><code>&lt;Button size="md"&gt;Standar&lt;/Button&gt;</code></td>
+    </tr>
+    <tr>
+      <td><code>lg</code></td>
+      <td><img src="https://img.shields.io/badge/Tombol%20Besar-174DDA?style=for-the-badge&logoColor=white" /></td>
+      <td>14px 28px (Font 18px)</td>
+      <td><code>&lt;Button size="lg"&gt;Besar&lt;/Button&gt;</code></td>
+    </tr>
+  </tbody>
+</table>
 
 ---
 
 ### 2. Chip — `src/components/ui/Chip.jsx`
 
-Badge berbentuk kapsul (*pill*) untuk kategori, kementerian, status, atau tag berita.
+Badge berbentuk kapsul (*pill*) untuk menampilkan status, kementerian, biro, atau kategori berita.
 
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│  TAMPILAN DI BROWSER:                                                  │
-│                                                                        │
-│   ( 🏷️ Kementerian Sosial )   ( 🔵 Vokasipedia )   ( ⚪ Draft Status )  │
-│      [variant="warning"]          [variant="primary"]  [variant="outline"] │
-│      Bg: Kuning Muda #FFF3CF      Bg: Biru Muda        Border: Abu-abu     │
-│      Teks: Coklat Emas #D68200    Teks: Biru Tua       Teks: Gelap         │
-└────────────────────────────────────────────────────────────────────────┘
-```
-
-```jsx
-import Chip from "@/components/ui/Chip";
-import { TagIcon } from "@solar-icons/react/linear/tag";
-
-// Default: variant="warning" (kuning lembut sesuai desain BEM)
-<Chip>Kementerian Sosial Masyarakat</Chip>
-
-// Varian Biru
-<Chip variant="primary">Vokasipedia</Chip>
-
-// Varian Outline
-<Chip variant="outline">Arsip 2025</Chip>
-
-// Chip sebagai Tautan (Interaktif)
-<Chip href="/vokasipedia?tag=kegiatan" icon={<TagIcon size={16} />}>
-  Kegiatan
-</Chip>
-```
+<table>
+  <thead>
+    <tr>
+      <th>Varian</th>
+      <th>Tampilan Visual (Render HTML)</th>
+      <th>Token Warna</th>
+      <th>Kode Penggunaan JSX</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>warning</b><br><i>(Default)</i></td>
+      <td>
+        <img src="https://img.shields.io/badge/Kementerian%20Sosial%20Masyarakat-FFF3CF?style=flat-square&color=D68200&labelColor=FFF3CF" alt="Chip Warning" />
+      </td>
+      <td>
+        • Background: <code>#FFF3CF</code> (Secondary-100)<br>
+        • Teks: <code>#D68200</code> (Secondary-500)
+      </td>
+      <td>
+<pre lang="jsx">
+&lt;Chip&gt;
+  Kementerian Sosial Masyarakat
+&lt;/Chip&gt;
+</pre>
+      </td>
+    </tr>
+    <tr>
+      <td><b>primary</b></td>
+      <td>
+        <img src="https://img.shields.io/badge/%F0%9F%93%B0%20Vokasipedia-CFE1FD?style=flat-square&color=0B2B9C&labelColor=CFE1FD" alt="Chip Primary" />
+      </td>
+      <td>
+        • Background: <code>#CFE1FD</code> (Primary-100)<br>
+        • Teks: <code>#0B2B9C</code> (Primary-600)
+      </td>
+      <td>
+<pre lang="jsx">
+&lt;Chip variant="primary"&gt;
+  Vokasipedia
+&lt;/Chip&gt;
+</pre>
+      </td>
+    </tr>
+    <tr>
+      <td><b>outline</b></td>
+      <td>
+        <img src="https://img.shields.io/badge/Arsip%20Kabinet%202025-FAFCFE?style=flat-square&color=475F8C&labelColor=FAFCFE" alt="Chip Outline" />
+      </td>
+      <td>
+        • Border: 1px Solid Neutral-500<br>
+        • Teks: <code>#475F8C</code> (Neutral-900)
+      </td>
+      <td>
+<pre lang="jsx">
+&lt;Chip variant="outline"&gt;
+  Arsip Kabinet 2025
+&lt;/Chip&gt;
+</pre>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ---
 
@@ -230,36 +469,42 @@ import { TagIcon } from "@solar-icons/react/linear/tag";
 
 Kartu artikel responsif untuk menampilkan feed berita, opini, dan artikel Vokasipedia.
 
-```
-┌──────────────────────────────────────────────────────────────────┐
-│  TAMPILAN STRUKTUR KARTU (ArticleCard):                          │
-│                                                                  │
-│  ┌────────────────────────────────────────────────────────────┐  │
-│  │                                                            │  │
-│  │                 [ FOTO KEGIATAN / THUMBNAIL ]              │  │
-│  │                        (Tinggi: 220px)                     │  │
-│  │                                                            │  │
-│  └────────────────────────────────────────────────────────────┘  │
-│   ( Kementerian Sosial Masyarakat )  ( Biro PSDM )               │
-│                                                                  │
-│   Pekan Olahraga Vokasi dan Vocational Art (PORVO)               │
-│   Kegiatan tahunan olahraga dan pentas seni mahasiswa sekolah    │
-│   vokasi resmi dibuka dengan meriah...                           │
-│                                                                  │
-│                                              Selengkapnya ↗      │
-└──────────────────────────────────────────────────────────────────┘
-```
+#### Pratinjau Tampilan Visual Kartu (Render HTML Langsung):
 
+<table>
+  <tr>
+    <td width="380" style="background-color: #ffffff; border-radius: 16px; padding: 16px; box-shadow: 0 16px 32px -12px rgba(88, 92, 95, 0.1);">
+      <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&auto=format&fit=crop&q=80" width="100%" style="border-radius: 12px;" alt="Kegiatan PORVO" /><br><br>
+      <img src="https://img.shields.io/badge/Kementerian%20Sosial%20Masyarakat-FFF3CF?style=flat-square&color=D68200&labelColor=FFF3CF" />
+      <img src="https://img.shields.io/badge/Biro%20PSDM-FFF3CF?style=flat-square&color=D68200&labelColor=FFF3CF" />
+      <h3 style="color: #2B4774; margin: 12px 0 6px 0;">Pekan Olahraga Vokasi dan Vocational Art (PORVO)</h3>
+      <p style="color: #475F8C; font-size: 14px; line-height: 1.5; margin: 0 0 16px 0;">
+        Pekan olahraga dan seni mahasiswa vokasi resmi dibuka dengan penuh kemeriahan dan antusiasme tinggi seluruh departemen...
+      </p>
+      <table width="100%">
+        <tr>
+          <td align="right">
+            <a href="#selengkapnya" style="color: #174DDA; font-weight: 700; text-decoration: none;">
+              Selengkapnya ↗
+            </a>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+#### Kode Penggunaan JSX:
 ```jsx
 import ArticleCard from "@/components/ui/ArticleCard";
 
 <ArticleCard
   image="/images/news/porvo.jpg"
-  imageAlt="Pembukaan Pekan Olahraga Vokasi"
-  chips={["Kementerian Sosial Masyarakat", "Biro PSDM"]}
-  title="Pekan Olahraga Vokasi dan Vocational Art (PORVO) 2026"
-  excerpt="Kegiatan tahunan olahraga dan pentas seni mahasiswa sekolah vokasi resmi dibuka dengan meriah di Lapangan SV UGM..."
-  href="/vokasipedia/pekan-olahraga-vokasi-2026"
+  imageAlt="Kegiatan PORVO"
+  chips={["Kementerian Sosial Masyarakat", "Biro Pengembangan Sumber Daya"]}
+  title="Pekan Olahraga Vokasi dan Vocational Art (PORVO)"
+  excerpt="Pekan olahraga dan seni mahasiswa vokasi resmi dibuka dengan penuh kemeriahan dan antusiasme tinggi seluruh departemen..."
+  href="/vokasipedia/pekan-olahraga-vokasi"
 />
 ```
 
@@ -267,51 +512,85 @@ import ArticleCard from "@/components/ui/ArticleCard";
 
 ### 4. Navbar — `src/components/layout/Navbar.jsx`
 
-Header navigasi yang responsif, *sticky*, dan memusatkan menu di titik tengah layar.
+Header navigasi yang responsif, *sticky*, dan memusatkan seluruh menu tepat di titik tengah horizontal layar.
 
-```
-┌───────────────────────────────────────────────────────────────────────────────────────────────┐
-│  TAMPILAN DI DESKTOP:                                                                         │
-│                                                                                               │
-│  [🏛️ BEM KM SV]               Beranda  Kesekretariatan  Vokasipedia              [ 📞 Narahubung ] │
-│   Sekolah Vokasi UGM           Uni-Vokasi  Aduan Vokasi  Galeri                               │
-│                                                                                               │
-│  ◄──── SISI KIRI ────►        ◄────────── TENGAH LAYAR (CENTER) ──────────►      ◄── SISI KANAN ──► │
-│    Brand & Logo                  Menu Navigasi Terpusat Seimbang                  Action Button       │
-└───────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+#### Pratinjau Tampilan Visual Navbar (Render HTML):
 
-- **Pusat Navigasi:** Menu utama selalu berada tepat di tengah layar (50% horizontal center).
-- **Data Dinamis:** Daftar menu dikelola di `src/config/navigation.js`. Tidak perlu mengubah komponen untuk menambah halaman baru.
-- **Mobile Menu:** Otomatis beralih ke drawer menu pada layar tablet/ponsel (≤ 1080px).
+<table width="100%" style="background-color: #ffffff; border-bottom: 1px solid #E0E5F2; padding: 12px 24px;">
+  <tr>
+    <td align="left" width="28%">
+      <b>🏛️ BEM KM SV UGM</b><br>
+      <small style="color: #7085AE;">Sekolah Vokasi Universitas Gadjah Mada</small>
+    </td>
+    <td align="center" width="44%">
+      <span style="color: #174DDA; font-weight: 700;"><u>Beranda</u></span> &nbsp;&nbsp;
+      <span style="color: #475F8C;">Kesekretariatan</span> &nbsp;&nbsp;
+      <span style="color: #475F8C;">Vokasipedia</span> &nbsp;&nbsp;
+      <span style="color: #475F8C;">Uni-Vokasi</span> &nbsp;&nbsp;
+      <span style="color: #475F8C;">Aduan Vokasi</span> &nbsp;&nbsp;
+      <span style="color: #475F8C;">Galeri</span>
+    </td>
+    <td align="right" width="28%">
+      <a href="#narahubung">
+        <img src="https://img.shields.io/badge/%F0%9F%93%9E%20Narahubung-174DDA?style=flat-square&logoColor=white" alt="Button Narahubung" />
+      </a>
+    </td>
+  </tr>
+</table>
 
-```jsx
-import Navbar from "@/components/layout/Navbar";
-
-// Dipasang sekali di src/app/layout.js
-<Navbar />
-```
+- **Pusat Navigasi:** Menu tautan utama selalu terpusat secara matematis di tengah layar (`position: absolute; left: 50%; transform: translate(-50%, -50%)`).
+- **Data Dinamis:** Daftar tautan dikelola di `src/config/navigation.js`.
+- **Mobile Menu:** Otomatis beralih ke mobile drawer menu pada layar tablet/ponsel (≤ 1080px).
 
 ---
 
 ### 5. Footer — `src/components/layout/Footer.jsx`
 
-Footer komprehensif yang menampilkan identitas lembaga, tautan sosial media, kontak, dan tautan sitemap navigasi.
+Footer komprehensif yang menampilkan identitas resmi BEM, kontak, dan tautan sitemap navigasi.
 
-```
-┌───────────────────────────────────────────────────────────────────────────────────────────────┐
-│  TAMPILAN FOOTER:                                                                             │
-│                                                                                               │
-│  [🏛️ BEM KM SV]               Tautan Cepat      Layanan           Departemen        Media     │
-│   Keluarga Mahasiswa           • Beranda         • Aduan Vokasi    • KMD TEDI        • YouTube │
-│   Sekolah Vokasi UGM           • Kesekretariatan • Kalender        • KMD DBS         • Instagram│
-│                                • Vokasipedia     • Aspirasi        • KMD DEB         • TikTok  │
-│  ✉️ bem.sv@ugm.ac.id                                                                          │
-│  [YouTube] [Instagram] [TikTok]                                                               │
-└───────────────────────────────────────────────────────────────────────────────────────────────┘
-```
+#### Pratinjau Tampilan Visual Footer (Render HTML):
 
-Semua data kontak dan tautan sosial media terpusat di `src/config/site.js`.
+<table width="100%" style="background-color: #FAFCFE; border-top: 1px solid #E0E5F2; padding: 24px;">
+  <tr>
+    <td width="35%" valign="top">
+      <h4 style="color: #2B4774; margin: 0 0 8px 0;">Badan Eksekutif Mahasiswa</h4>
+      <p style="color: #7085AE; font-size: 13px; margin: 0 0 12px 0;">
+        Keluarga Mahasiswa Sekolah Vokasi<br>Universitas Gadjah Mada
+      </p>
+      <p style="font-size: 13px; color: #174DDA;">✉️ bem.sv@ugm.ac.id</p>
+      <p>
+        <img src="https://img.shields.io/badge/YouTube-FF0000?style=flat-square&logo=youtube&logoColor=white" />
+        <img src="https://img.shields.io/badge/Instagram-E4405F?style=flat-square&logo=instagram&logoColor=white" />
+        <img src="https://img.shields.io/badge/TikTok-000000?style=flat-square&logo=tiktok&logoColor=white" />
+      </p>
+    </td>
+    <td width="20%" valign="top">
+      <b style="color: #2B4774;">Tautan Cepat</b><br><br>
+      <small style="color: #475F8C; line-height: 2;">
+        • Beranda<br>
+        • Kesekretariatan<br>
+        • Vokasipedia<br>
+        • Galeri Kegiatan
+      </small>
+    </td>
+    <td width="22%" valign="top">
+      <b style="color: #2B4774;">Layanan Mahasiswa</b><br><br>
+      <small style="color: #475F8C; line-height: 2;">
+        • Aduan Vokasi<br>
+        • Survei Kepuasan<br>
+        • Media Partner
+      </small>
+    </td>
+    <td width="23%" valign="top">
+      <b style="color: #2B4774;">Keluarga Mahasiswa</b><br><br>
+      <small style="color: #475F8C; line-height: 2;">
+        • KMD Departemen TEDI<br>
+        • KMD Departemen DBS<br>
+        • Badan Semi Otonom (BSO)
+      </small>
+    </td>
+  </tr>
+</table>
 
 ---
 
@@ -369,15 +648,3 @@ Buka browser dan akses [http://localhost:3000](http://localhost:3000).
 | `npm run build` | Menjalankan validasi linting, compile, dan optimasi build produksi |
 | `npm run start` | Menjalankan server hasil produksi build lokal |
 | `npm run lint` | Menjalankan pemeriksaan kode ESLint |
-
----
-
-## 💡 Tips & Panduan Tambahan
-
-> [!TIP]
-> **Menambahkan Ikon Solar Baru:**
-> Kunjungi [Solar Icons](https://solar-icons.com/) untuk melihat katalog lengkap nama-nama ikon. Anda dapat mengimpor ikon pilihan Anda melalui pola `@solar-icons/react/<style>/<nama-icon>`.
-
-> [!IMPORTANT]
-> **Konsistensi Desain:**
-> Jangan menimpa style komponen dengan inline-style sembarangan. Jika memerlukan style khusus pada halaman tertentu, gunakan CSS Module lokal dan kombinasikan dengan prop `className` atau `variant`.
