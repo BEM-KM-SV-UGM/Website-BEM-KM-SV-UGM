@@ -1,25 +1,29 @@
-import React from 'react';
-import styles from './Button.module.css'; // Sesuaikan jika menggunakan CSS Modules/Tailwind
+import React from "react";
+import styles from "./Button.module.css";
 
-export default function Button({ 
-  children, 
-  href, 
+export default function Button({
+  children,
+  href,
   icon: Icon,
-  className = '', 
-  ...props 
+  variant = "primary",
+  size = "md",
+  className = "",
+  disabled = false,
+  ...props
 }) {
-  // Konten dalam button (Ikon + Teks/Children)
   const content = (
     <>
       {Icon && <span className={styles.iconWrapper}>{Icon}</span>}
-      <span className={styles.label}>{children}</span>
+      {children && <span className={styles.label}>{children}</span>}
     </>
   );
 
-  const combinedClassName = `${styles.button} ${className}`.trim();
+  const variantClass = styles[variant] || styles.primary;
+  const sizeClass = styles[size] || styles.md;
+  const combinedClassName = `${styles.button} ${variantClass} ${sizeClass} ${className}`.trim();
 
-  // Jika prop `href` ada, render tag <a> (Link)
-  if (href) {
+  // Jika prop `href` ada dan tidak disabled, render tag <a> (Link)
+  if (href && !disabled) {
     return (
       <a href={href} className={combinedClassName} {...props}>
         {content}
@@ -27,9 +31,14 @@ export default function Button({
     );
   }
 
-  // Jika tidak ada `href`, render tag <button> standar
+  // Jika tidak ada `href` atau disabled, render tag <button> standar
   return (
-    <button className={combinedClassName} {...props}>
+    <button
+      className={combinedClassName}
+      disabled={disabled}
+      type={props.type || "button"}
+      {...props}
+    >
       {content}
     </button>
   );

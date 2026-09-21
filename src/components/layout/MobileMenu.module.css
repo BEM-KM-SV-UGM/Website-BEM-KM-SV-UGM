@@ -27,7 +27,7 @@
   text-decoration: none;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1080px) {
   .wrapper {
     display: block;
     position: relative;

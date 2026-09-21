@@ -1,25 +1,182 @@
+/* Button Component — Memakai token design system (globals.css) */
+
 .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px; /* Jarak antara ikon dan teks */
-  padding: 10px 20px;
-  background-color: #1d5bd8; /* Warna biru sesuai gambar */
-  color: #ffffff;
-  border: none;
-  border-radius: 12px;
+  font-family: inherit;
   font-weight: 600;
-  font-size: 16px;
-  text-decoration: none;
+  text-decoration: none !important;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  border: 1px solid transparent;
+  user-select: none;
+  white-space: nowrap;
+  vertical-align: middle;
+  line-height: 1.25;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
 }
 
-.button:hover {
-  background-color: #1449b8;
+.button:focus-visible {
+  outline: 2px solid var(--primary-400);
+  outline-offset: 2px;
 }
+
+.button:active {
+  transform: scale(0.98);
+}
+
+.button:disabled,
+.button[aria-disabled="true"] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+  transform: none;
+  box-shadow: none;
+}
+
+/* =============================================================
+   Sizes
+   ============================================================= */
+
+.sm {
+  font-size: var(--text-b3);
+  padding: 6px 14px;
+  border-radius: var(--radius-2);
+  gap: 6px;
+}
+
+.md {
+  font-size: var(--text-b2);
+  padding: 10px 20px;
+  border-radius: var(--radius-3);
+  gap: 8px;
+}
+
+.lg {
+  font-size: var(--text-b1);
+  padding: 14px 28px;
+  border-radius: var(--radius-4);
+  gap: 10px;
+}
+
+/* =============================================================
+   Variants
+   ============================================================= */
+
+/* Primary */
+.primary {
+  background-color: var(--primary-400);
+  border-color: var(--primary-400);
+  color: var(--neutral-100) !important;
+}
+
+.primary:hover {
+  background-color: var(--primary-500);
+  border-color: var(--primary-500);
+  color: var(--neutral-100) !important;
+  box-shadow: 0 4px 14px 0 rgba(23, 77, 218, 0.25);
+}
+
+.primary:active {
+  background-color: var(--primary-600);
+  border-color: var(--primary-600);
+  color: var(--neutral-100) !important;
+}
+
+/* Outline */
+.outline {
+  background-color: var(--neutral-100);
+  border-color: var(--neutral-600);
+  color: var(--primary-400) !important;
+}
+
+.outline:hover {
+  background-color: var(--neutral-300);
+  border-color: var(--neutral-700);
+  color: var(--primary-500) !important;
+  box-shadow: var(--shadow-e1);
+}
+
+.outline:active {
+  background-color: var(--neutral-400);
+  border-color: var(--neutral-800);
+  color: var(--primary-600) !important;
+}
+
+/* Secondary / Tinted */
+.secondary {
+  background-color: var(--primary-100);
+  border-color: transparent;
+  color: var(--primary-600) !important;
+}
+
+.secondary:hover {
+  background-color: var(--primary-200);
+  border-color: transparent;
+  color: var(--primary-700) !important;
+}
+
+.secondary:active {
+  background-color: var(--primary-300);
+  border-color: transparent;
+  color: var(--primary-700) !important;
+}
+
+/* Ghost */
+.ghost {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--neutral-900) !important;
+}
+
+.ghost:hover {
+  background-color: var(--neutral-300);
+  color: var(--primary-400) !important;
+}
+
+.ghost:active {
+  background-color: var(--neutral-400);
+  color: var(--primary-500) !important;
+}
+
+/* White (solid white button) */
+.white {
+  background-color: var(--neutral-100);
+  border-color: var(--neutral-100);
+  color: var(--primary-400) !important;
+}
+
+.white:hover {
+  background-color: var(--neutral-200);
+  border-color: var(--neutral-200);
+  color: var(--primary-500) !important;
+  box-shadow: var(--shadow-e1);
+}
+
+.white:active {
+  background-color: var(--neutral-300);
+  border-color: var(--neutral-300);
+  color: var(--primary-600) !important;
+}
+
+/* =============================================================
+   Inner Content
+   ============================================================= */
 
 .iconWrapper {
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.label {
+  display: inline-block;
+  line-height: inherit;
 }

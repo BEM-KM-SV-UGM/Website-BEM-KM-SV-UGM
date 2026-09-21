@@ -6,6 +6,8 @@ import Button from "@/components/ui/Button";
 import { siteConfig } from "@/config/site";
 import { homeContent } from "../data/home";
 import styles from "./Hero.module.css";
+import { ArrowRightUpIcon } from '@solar-icons/react/line-duotone/arrow-right-up'
+import ArticleCard from "@/components/ui/ArticleCard";
 
 // Ikon panah keluar (↗) untuk button "Layanan Aduan Vokasi".
 function ExternalArrowIcon() {
@@ -111,16 +113,54 @@ export default function Hero() {
             href={siteConfig.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className={styles.btnOutline}
+            variant="outline"
           >
             Narahubung &amp; Media Partner
           </Button>
-          <Button href="/aduan-vokasi" icon={<ExternalArrowIcon />}>
+          <Button
+            href="/aduan-vokasi"
+            icon={<ArrowRightUpIcon size={24} />}
+          >
             Layanan Aduan Vokasi
           </Button>
         </div>
       </div>
 
+      {/* ini artikelllll */}
+      {/* <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(3, 1fr)",
+          gap: "var(--spacing-6)",
+        }}
+      >
+        <ArticleCard
+          image="/images/news/pose.jpg"
+          imageAlt="Kegiatan PORVO"
+          chips={["Kementerian Sosial Masyarakat", "Biro Pengembangan Sumber Daya"]}
+          title="Pekan Olahraga Vokasi dan Vocational Art"
+          excerpt="Lorem ipsum dolor sit amet, consectetur adipiscing elit..."
+          href="/vokasipedia/pekan-olahraga-vokasi"
+        />
+
+        <ArticleCard
+          image="/images/news/pose.jpg"
+          imageAlt="Kegiatan PORVO"
+          chips={["Kementerian Sosial Masyarakat", "Biro Pengembangan Sumber Daya"]}
+          title="Artikel Kedua"
+          excerpt="Lorem ipsum dolor sit amet, consectetur adipiscing elit..."
+          href="/vokasipedia/artikel-kedua"
+        />
+
+        <ArticleCard
+          image="/images/news/pose.jpg"
+          imageAlt="Kegiatan PORVO"
+          chips={["Kementerian Sosial Masyarakat", "Biro Pengembangan Sumber Daya"]}
+          title="Artikel Ketiga"
+          excerpt="Lorem ipsum dolor sit amet, consectetur adipiscing elit..."
+          href="/vokasipedia/artikel-ketiga"
+        />
+      </div> */}
       {/* Gradasi dari aset public/hero/gradation.png + penutup biru parallax */}
       <div className={styles.visual} aria-hidden="true">
         <Image

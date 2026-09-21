@@ -9,7 +9,7 @@ export const siteConfig = {
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
   url: "http://localhost:3000",
   email: "loremipsum@mail.ugm.ac.id",
-  whatsappUrl: "https://wa.me/6281234567890", // Dummy WhatsApp Narahubung
+  whatsappUrl: "https://wa.me/6283149850938", // WhatsApp Narahubung
   socials: {
     youtube: "https://youtube.com",
     instagram: "https://instagram.com",

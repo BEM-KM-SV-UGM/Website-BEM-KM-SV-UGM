@@ -8,6 +8,7 @@ import Button from "@/components/ui/Button";
 import { navigation } from "@/config/navigation";
 import { siteConfig } from "@/config/site";
 import styles from "./Navbar.module.css";
+import { ChatSquareCallIcon } from '@solar-icons/react/bold-duotone/chat-square-call'
 
 function isActive(pathname, href) {
   if (href === "/") {
@@ -84,7 +85,7 @@ export default function Navbar() {
             href={siteConfig.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            icon={<ChatIcon />}
+            icon={<ChatSquareCallIcon size={24} />}
             className={styles.narahubungBtn}
           >
             Narahubung

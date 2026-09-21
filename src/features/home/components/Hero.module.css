@@ -19,7 +19,6 @@
 }
 
 /* --- Brand (logo + nama + subtitle) --- */
-
 .brand {
   display: flex;
   align-items: center;
@@ -88,20 +87,6 @@
   justify-content: center;
   gap: var(--spacing-4);
   margin-top: var(--spacing-7);
-}
-
-/* Button outline "Narahubung & Media Partner": dasar putih, teks primary.
-   Class digandakan agar menang atas style default Button. */
-.btnOutline.btnOutline {
-  background-color: var(--neutral-100);
-  border: var(--stroke-0) solid var(--neutral-600);
-  color: var(--primary-400);
-}
-
-.btnOutline.btnOutline:hover {
-  background-color: var(--neutral-300);
-  border-color: var(--neutral-700);
-  color: var(--primary-500);
 }
 
 /* --- Area gradasi (aset) + penutup biru (parallax) --- */

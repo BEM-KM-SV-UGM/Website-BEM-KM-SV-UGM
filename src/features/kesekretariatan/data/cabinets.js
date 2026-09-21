@@ -48,7 +48,7 @@ export const cabinets = [
     slug: "kabinet-2025",
     tagline: "Merajut Asa, Mengabdi Sepenuh Hati",
     description:
-      "Kabinet BEM KM SV UGM Tahun 2025 yang membawa semangat pengabdian masyarakat dan sinergi aktif seluruh elemen mahasiswa vokasi.",
+      "Kabinet BEM KM SV UGM Tahun s2025 yang membawa semangat pengabdian masyarakat dan sinergi aktif seluruh elemen mahasiswa vokasi.",
     vision:
       "Menjadikan BEM KM SV UGM wadah aspirasi yang adaptif, berintegritas, dan berkontribusi nyata bagi almamater dan masyarakat.",
     missions: [

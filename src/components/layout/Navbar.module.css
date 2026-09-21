@@ -7,6 +7,7 @@
 }
 
 .inner {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -19,6 +20,7 @@
   align-items: center;
   gap: 12px;
   text-decoration: none;
+  z-index: 1;
 }
 
 .logoImage {
@@ -50,10 +52,16 @@
   margin-top: 2px;
 }
 
+/* Navigasi menu tetap berada tepat di tengah layar / container */
 .nav {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 28px;
+  white-space: nowrap;
 }
 
 .link {
@@ -84,9 +92,10 @@
   display: flex;
   align-items: center;
   gap: var(--spacing-3);
+  z-index: 1;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1080px) {
   .nav {
     display: none;
   }
