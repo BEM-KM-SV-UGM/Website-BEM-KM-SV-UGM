@@ -5,50 +5,107 @@ export const cabinets = [
   {
     id: 1,
     year: "2026",
-    name: "Kabinet Arkatama Swakarsa",
+    status: "Kabinet Aktif",
+    period: "2025/2026",
+    name: "Kabinet Pijar Resonansi",
     slug: "kabinet-2026",
     tagline: "Bersama Melangkah, Nyata Berdampak",
+    heroImage: "/images/Kesekretariatan/hero.jpg",
+    logo: "/images/Kesekretariatan/logo.png",
+    videoUrl: "https://www.youtube.com/watch?v=efGuRedKxmM",
     description:
-      "Kabinet BEM KM SV UGM Tahun 2026 yang berfokus pada kolaborasi inklusif, penguatan advokasi mahasiswa, serta inovasi karya vokasional.",
+      "Gemilang Aradhana terdiri atas dua kata dengan maknanya masing-masing. Gemilang menggambarkan kejayaan, keberhasilan, dan pencapaian yang luar biasa. Kata ini mencerminkan harapan bahwa kabinet ini akan membawa perubahan positif, kemajuan, serta prestasi yang membanggakan. Sedangkan, Aradhana yang berasal dari bahasa Sansekerta memiliki makna pengabdian atau persembahan. Hal tersebut melambangkan dedikasi dan kerja keras dalam melayani serta mewujudkan visi yang lebih besar untuk kepentingan bersama.",
     vision:
-      "Terwujudnya BEM KM SV UGM yang inklusif, responsif, dan progresif sebagai katalisator karya dan perjuangan mahasiswa Sekolah Vokasi.",
+      "Mewujudkan BEM KM SV UGM sebagai ruang yang inklusif dan responsif terhadap kebutuhan mahasiswa, sehingga dapat menciptakan wadah aspiratif yang mendukung kolaborasi lintas disiplin ilmu, serta minat dan bakat, yang mampu membangun sinergi antar mahasiswa.",
     missions: [
-      "Membangun internal kabinet yang solid, profesional, dan berlandaskan kekeluargaan.",
-      "Mengoptimalkan peran advokasi mahasiswa yang solutif, transparan, dan berkeadilan.",
-      "Mewadahi dan mengakselerasi potensi minat, bakat, serta inovasi karya mahasiswa vokasi.",
-      "Memperluas jejaring kolaborasi strategis dengan stakeholder internal maupun eksternal.",
+      "Mengakomodasi aspirasi mahasiswa yang efektif & transparan, serta memberikan respons yang cepat & solutif.",
+      "Mendorong pengembangan minat & bakat serta memberikan akses yang seluas-luasnya terhadap sumber daya yang dapat membantu mahasiswa berkembang.",
+      "Menjalin kerja sama yang erat antar-organisasi dan komunitas mahasiswa di lingkungan SV UGM, sehingga terciptanya sinergi yang kuat dan harmonis.",
+      "Memperkuat keterhubungan antara mahasiswa & industri melalui program magang dan pelatihan.",
     ],
+    lpj: {
+      midYear: {
+        title: "Laporan Pertanggung Jawaban Tengah Tahun",
+        period: "Periode 2025/2026 (Semester Ganjil)",
+        fileUrl: "/documents/lpj-tengah-tahun-2025-2026.pdf",
+        stats: {
+          totalPrograms: 48,
+          completedPrograms: 48,
+          percentage: "100%",
+          studentsImpacted: "5.420+",
+          budgetRealization: "96.4%",
+        },
+        highlights: [
+          "Pelaksanaan Vokasi Fest & Expo Kolaborasi Terbuka",
+          "Penyaluran dan Advokasi Aspirasi Mahasiswa SV 100% Terselesaikan",
+          "Program Inkubasi Inovasi & Minat Bakat Vokasional",
+          "Konsolidasi Akbar 16 Himpunan Mahasiswa Departemen",
+        ],
+      },
+      endYear: {
+        title: "Laporan Pertanggung Jawaban Akhir Tahun",
+        period: "Periode 2025/2026 (Semester Genap)",
+        fileUrl: "/documents/lpj-akhir-tahun-2025-2026.pdf",
+        stats: {
+          totalPrograms: 96,
+          completedPrograms: 95,
+          percentage: "98.9%",
+          studentsImpacted: "12.800+",
+          budgetRealization: "98.2%",
+        },
+        highlights: [
+          "Kongres Mahasiswa Vokasi & Serah Terima Laporan Terbuka",
+          "Kemitraan Strategis Bersama Mitra Industri Nasional",
+          "Pengembangan Ekosistem Digital Kemahasiswaan Terpadu",
+          "Apresiasi Insan Berprestasi Sekolah Vokasi UGM",
+        ],
+      },
+    },
     structure: [
       {
         department: "Kemenkoan Internal",
         lead: "Menteri Koordinator Internal",
-        divisions: ["Kementerian Pengembangan Sumber Daya Manusia", "Kementerian Hubungan Internal Organisasi"],
+        divisions: [
+          "Kementerian Pengembangan Sumber Daya Manusia",
+          "Kementerian Hubungan Internal Organisasi",
+        ],
       },
       {
         department: "Kemenkoan Pergerakan & Advokasi",
         lead: "Menteri Koordinator Pergerakan",
-        divisions: ["Kementerian Advokasi dan Kesejahteraan Mahasiswa", "Kementerian Kajian dan Aksi Strategis"],
+        divisions: [
+          "Kementerian Advokasi dan Kesejahteraan Mahasiswa",
+          "Kementerian Kajian dan Aksi Strategis",
+        ],
       },
       {
         department: "Kemenkoan Relasi & Media",
         lead: "Menteri Koordinator Relasi",
-        divisions: ["Kementerian Komunikasi dan Informasi", "Kementerian Hubungan Luar"],
+        divisions: [
+          "Kementerian Komunikasi dan Informasi",
+          "Kementerian Hubungan Luar",
+        ],
       },
       {
         department: "Kemenkoan Karya & Minat Bakat",
         lead: "Menteri Koordinator Karya",
-        divisions: ["Kementerian Seni dan Olahraga", "Kementerian Riset dan Inovasi"],
+        divisions: [
+          "Kementerian Seni dan Olahraga",
+          "Kementerian Riset dan Inovasi",
+        ],
       },
     ],
   },
   {
     id: 2,
     year: "2025",
+    status: "Kabinet arsip",
+    period: "2024/2025",
     name: "Kabinet Nawasena Cipta",
     slug: "kabinet-2025",
     tagline: "Merajut Asa, Mengabdi Sepenuh Hati",
     description:
-      "Kabinet BEM KM SV UGM Tahun s2025 yang membawa semangat pengabdian masyarakat dan sinergi aktif seluruh elemen mahasiswa vokasi.",
+      "Kabinet BEM KM SV UGM Tahun 2025 yang membawa semangat pengabdian masyarakat dan sinergi aktif seluruh elemen mahasiswa vokasi.",
     vision:
       "Menjadikan BEM KM SV UGM wadah aspirasi yang adaptif, berintegritas, dan berkontribusi nyata bagi almamater dan masyarakat.",
     missions: [
@@ -65,13 +122,18 @@ export const cabinets = [
       {
         department: "Kemenkoan Luar Kampus & Karya",
         lead: "Menteri Koordinator Eksternal",
-        divisions: ["Kementerian Media & Komunikasi", "Kementerian Sosial Masyarakat"],
+        divisions: [
+          "Kementerian Media & Komunikasi",
+          "Kementerian Sosial Masyarakat",
+        ],
       },
     ],
   },
   {
     id: 3,
     year: "2024",
+    status: "Kabinet arsip",
+    period: "2025/2026",
     name: "Kabinet Danadyaksa",
     slug: "kabinet-2024",
     tagline: "Dedikasi Tanpa Batas, Harmoni Vokasi",
@@ -92,3 +154,6 @@ export const cabinets = [
     ],
   },
 ];
+
+// Kabinet aktif saat ini (Kabinet pertama dalam daftar)
+export const activeCabinet = cabinets[0];

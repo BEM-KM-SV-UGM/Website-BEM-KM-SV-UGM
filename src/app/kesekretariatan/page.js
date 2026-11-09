@@ -1,13 +1,24 @@
-import CabinetList from "@/features/kesekretariatan/components/CabinetList";
-import { getCabinets } from "@/features/kesekretariatan/services/cabinet.service";
+// src/app/kesekretariatan/page.js
+import CabinetHero from "@/features/kesekretariatan/components/CabinetHero";
+import CabinetProfile from "@/features/kesekretariatan/components/CabinetProfile";
+import VisionMission from "@/features/kesekretariatan/components/VisionMission";
+import CabinetLpj from "@/features/kesekretariatan/components/CabinetLpj";
+import { activeCabinet } from "@/features/kesekretariatan/data/cabinets";
 
 export const metadata = {
   title: "Kesekretariatan | BEM KM SV UGM",
-  description: "Daftar kabinet Badan Eksekutif Mahasiswa KM Sekolah Vokasi UGM dari masa ke masa.",
+  description: "Profil kabinet, visi misi, dan laporan pertanggungjawaban BEM KM SV UGM.",
 };
 
-export default async function KesekretariatanPage() {
-  const cabinets = await getCabinets();
-  // uncomment aja buat mulai ngoding dan liat contoh
-  // return <CabinetList cabinets={cabinets} />;
+export default function KesekretariatanPage() {
+  const cabinet = activeCabinet;
+
+  return (
+    <>
+      <CabinetHero cabinet={cabinet} image={cabinet?.heroImage} videoUrl={cabinet?.videoUrl} />
+      <CabinetProfile cabinet={cabinet} />
+      <VisionMission vision={cabinet?.vision} missions={cabinet?.missions} />
+      <CabinetLpj lpj={cabinet?.lpj} cabinetName={cabinet?.name} />
+    </>
+  );
 }
