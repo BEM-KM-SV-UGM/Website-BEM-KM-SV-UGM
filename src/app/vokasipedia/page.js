@@ -1,5 +1,10 @@
+import ArticleHero from "@/features/vokasipedia/components/ArticleHero";
 import ArticleList from "@/features/vokasipedia/components/ArticleList";
-import { getArticles, getCategories } from "@/features/vokasipedia/services/article.service";
+import {
+  getArticles,
+  getDivisions,
+  getFeaturedArticles,
+} from "@/features/vokasipedia/services/article.service";
 
 export const metadata = {
   title: "Vokasipedia | BEM KM SV UGM",
@@ -7,10 +12,16 @@ export const metadata = {
 };
 
 export default async function VokasipediaPage() {
-  const [initialArticles, categories] = await Promise.all([
+  const [articles, featuredArticles, divisions] = await Promise.all([
     getArticles(),
-    getCategories(),
+    getFeaturedArticles(),
+    getDivisions(),
   ]);
 
-  // return <ArticleList initialArticles={initialArticles} categories={categories} />;
+  return (
+    <>
+      <ArticleHero articles={featuredArticles} />
+      <ArticleList initialArticles={articles} divisions={divisions} />
+    </>
+  );
 }

@@ -1,0 +1,248 @@
+/* Hero carousel Vokasipedia — semua nilai memakai token design system (globals.css). */
+
+.hero {
+  position: relative;
+  height: clamp(440px, 39vw, 560px);
+  overflow: hidden;
+  isolation: isolate;
+  background-color: var(--primary-700);
+  color: var(--neutral-100);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --- Slide --- */
+
+.slides {
+  position: absolute;
+  inset: 0;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  /* visibility baru berubah setelah fade-out selesai */
+  transition:
+    opacity 0.7s ease,
+    visibility 0s linear 0.7s;
+}
+
+.slideActive {
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.7s ease,
+    visibility 0s linear 0s;
+}
+
+.image {
+  object-fit: cover;
+  transform: scale(1.04);
+  transition: transform 7s ease-out;
+}
+
+.slideActive .image {
+  transform: scale(1);
+}
+
+/* Gradasi biru gelap dari bawah sesuai Figma (#2B4774 0% -> #2B4774 100%) */
+.slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(43, 71, 116, 0) 40%,
+    var(--neutral-1000) 100%
+  );
+}
+
+/* --- Konten --- */
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  padding-bottom: calc(var(--spacing-10) + var(--spacing-5)); /* ruang untuk dots */
+}
+
+.text {
+  max-width: 953px;
+}
+
+.slideActive .text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  max-width: 100%;
+}
+
+/* Nama panjang tidak boleh melebihi lebar layar: chip menyusut dan
+   teksnya dipotong dengan ellipsis (Chip sendiri white-space: nowrap). */
+.chips > span,
+.chips > a {
+  max-width: 100%;
+  min-width: 0;
+}
+
+.chips > span > span,
+.chips > a > span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.title {
+  margin: 0;
+  font-size: var(--text-h3); /* H-3: 46/69 Bold */
+  line-height: var(--lh-h3);
+  font-weight: 700;
+  color: var(--neutral-100);
+  /* hapus text-wrap: balance */
+}
+
+.excerpt {
+  margin: 0;
+  font-size: var(--text-b1);
+  line-height: var(--lh-b1);
+  font-weight: 500;
+  color: var(--neutral-300);
+}
+
+.readMore {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: var(--spacing-2);
+  font-size: var(--text-b2);
+  line-height: var(--lh-b2);
+  font-weight: 600;
+  color: var(--neutral-100);
+  text-decoration: none;
+}
+
+.readMore:hover {
+  color: var(--neutral-100);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.readMoreIcon {
+  transition: transform 0.2s ease;
+}
+
+.readMore:hover .readMoreIcon {
+  transform: translate(2px, -2px);
+}
+
+.readMore:focus-visible,
+.dot:focus-visible {
+  outline: 2px solid var(--neutral-100);
+  outline-offset: 4px;
+  border-radius: var(--radius-1);
+}
+
+/* --- Pagination dots --- */
+
+.dots {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: var(--spacing-5);
+  z-index: 2;
+  display: flex;
+  height: var(--spacing-6); /* 24px */
+  padding: var(--spacing-2) var(--spacing-3); /* 8px 12px */
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-2); /* 8px */
+  flex-shrink: 0;
+  border-radius: var(--radius-full);
+  background-color: var(--neutral-300);
+}
+
+/* Setiap dot: titik visual 8×8px. */
+.dot {
+  display: flex;
+  width: var(--spacing-2); /* 8px */
+  height: var(--spacing-2); /* 8px */
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border: 0;
+  border-radius: var(--radius-full);
+  background-color: var(--primary-100);
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.dot:hover {
+  background-color: var(--primary-200);
+}
+
+.dotActive {
+  background-color: var(--primary-400);
+  transform: scale(1.2);
+}
+
+/* --- Responsif --- */
+
+@media (max-width: 1024px) {
+  .title {
+    font-size: var(--text-h5); /* H-5: 32/48 */
+    line-height: var(--lh-h5);
+  }
+}
+
+@media (max-width: 640px) {
+  .title {
+    font-size: var(--text-h6); /* H-6: 26/39 */
+    line-height: var(--lh-h6);
+  }
+
+  .excerpt {
+    font-size: var(--text-b3);
+    line-height: var(--lh-b3);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide,
+  .slideActive,
+  .text,
+  .image,
+  .dot {
+    transition: none;
+  }
+
+  .image,
+  .slideActive .image {
+    transform: none;
+  }
+
+  .text {
+    transform: none;
+  }
+}

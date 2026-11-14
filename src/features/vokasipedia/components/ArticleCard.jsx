@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Card from "@/components/ui/Card";
 import Chip from "@/components/ui/Chip";
+import { ArrowRightUpIcon } from "@solar-icons/react/line-duotone/arrow-right-up";
 import styles from "./ArticleCard.module.css";
 
 export default function ArticleCard({ article }) {
@@ -23,7 +24,8 @@ export default function ArticleCard({ article }) {
       <div className={styles.footer}>
         <span className={styles.author}>Oleh: {article.author}</span>
         <Link href={`/vokasipedia/${article.slug}`} className={styles.readMore}>
-          Baca Selengkapnya &rarr;
+          <span>Baca Selengkapnya</span>
+          <ArrowRightUpIcon size={16} />
         </Link>
       </div>
     </Card>
